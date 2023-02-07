@@ -1,7 +1,9 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-
+/*
+ * Counting sort.
+ */
 int main() {
     std::ios_base::sync_with_stdio(false);
     std::cin.tie(nullptr);
@@ -32,6 +34,3 @@ int main() {
     }
     return 0;
 }
-/*
- * необходимо реализовать устойчивую сортировку подсчетом по неубыванию.
- */

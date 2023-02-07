@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 /*
- * Radix Sort по основанию 256.
+ * Radix Sort
  */
 void countSort(std::vector<int64_t> &vec, int64_t e, int64_t n) {
     std::vector<int64_t> cnt(256, 0);

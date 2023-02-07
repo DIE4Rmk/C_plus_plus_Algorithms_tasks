@@ -8,7 +8,7 @@ struct Drone {
 };
 
 /*
- * Radix sort по убыванию для структуры.
+ * Radix sort descending
  */
 void countSort(std::vector<Drone> &vec, int64_t e, int64_t n) {
     std::vector<int> cnt(10);
