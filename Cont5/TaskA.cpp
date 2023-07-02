@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 int main() {
     std::cin.tie(nullptr);
@@ -10,34 +11,33 @@ int main() {
     if (x.size() > y.size()) {
         std::swap(x, y);
     }
-    int arr[x.size()][y.size()];
+    std::vector<std::vector<int>> arr(y.size());
     for (int i = 0; i < y.size(); ++i) {
-        for (int j = 0; j < x.size(); ++j) {
-            arr[j][i] = 0;
-        }
+        std::vector<int> xx(x.size(), 0);
+        arr[i] = xx;
     }
     int mx = 0;
     for (int i = 0; i < y.size(); ++i) {
         for (int j = 0; j < x.size(); ++j) {
             if (x[j] == y[i]) {
-                arr[j][i]++;
+                arr[i][j]++;
                 if (j > 0 && i > 0) {
-                    arr[j][i] += arr[j - 1][i - 1];
+                    arr[i][j] += arr[i - 1][j - 1];
                 }
             } else {
                 if (i > 0) {
-                    if (arr[j][i - 1] > arr[j][i]) {
-                        arr[j][i] = arr[j][i - 1];
+                    if (arr[i - 1][j] > arr[i][j]) {
+                        arr[i][j] = arr[i - 1][j];
                     }
                 }
                 if (j > 0) {
-                    if (arr[j - 1][i] > arr[j][i]) {
-                        arr[j][i] = arr[j - 1][i];
+                    if (arr[i][j - 1] > arr[i][j]) {
+                        arr[i][j] = arr[i][j - 1];
                     }
                 }
             }
-            if (mx < arr[j][i]) {
-                mx = arr[j][i];
+            if (mx < arr[i][j]) {
+                mx = arr[i][j];
             }
         }
     }
